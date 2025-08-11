@@ -908,6 +908,7 @@
         "product_card_TjGefH",
         "product_card_WfwAEp"
       ],
+      "disabled": true,
       "name": "Product List Carousel",
       "settings": {
         "content_direction": "row",
