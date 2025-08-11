@@ -1,0 +1,35 @@
+<div class="swiper-slide p-4">
+  <div class="flex flex-col items-center w-full h-full bg-white text-gray-900 px-4 py-4 rounded-xl">
+    <div class="relative w-14 aspect-square overflow-hidden rounded-full shrink-0">
+      {% if feedback.src != blank %}
+        <img
+          src="{{ feedback.src | image_url }}"
+          alt="{{ feedback.name | escape }}"
+          height="100%"
+          width="100%"
+          class="object-cover w-full h-full rounded-full"
+          loading="lazy"
+        >
+      {% else %}
+        <img
+          src="{{ 'no-avatar.png' | asset_url }}"
+          alt="No avatar"
+          height="100%"
+          width="100%"
+          class="object-cover w-full h-full rounded-full"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+
+    <h2 class="text-violet-400 text-sm my-1">
+      {{ feedback.name }}
+    </h2>
+
+    <div class="w-full border border-b-violet-400"></div>
+
+    <h3 class="line-clamp-12 text-center text-sm md:text-base px-3 overflow-y-auto">
+      {{ feedback.quote }}
+    </h3>
+  </div>
+</div>

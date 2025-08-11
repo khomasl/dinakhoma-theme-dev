@@ -1,0 +1,94 @@
+<section
+  id="features"
+  class="lg:grid grid-cols-1 lg:grid-cols-2 main-container items-center justify-center w-full bg-violet-400 text-white"
+>
+  <div class="lg:px-0 lg:mr-16 pt-5 lg:pt-0 mb-10 lg:mb-0">
+    <p class="font-bold text-center lg:text-left">
+      {{ section.settings.header }}
+    </p>
+
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold mb-8 mt-2 lg:max-w-2/3 lg:px-0 text-center lg:text-left">
+      {{ section.settings.title }}
+    </h1>
+
+    <h2 class="text-center lg:text-left text-xl mb-8">
+      {{ section.settings.description }}
+    </h2>
+
+    {% if section.settings.button_text and section.settings.button_link %}
+      <div class="mx-auto w-fit lg:mx-0">
+        <a
+          href="{{ section.settings.button_link }}"
+          class="bg-gray-400 rounded-lg py-4 px-8 font-bold text-center text-xl text-white hover:opacity-90 transition-all mx-auto w-fit lg:mx-0"
+        >
+          {{ section.settings.button_text }}
+        </a>
+      </div>
+    {% endif %}
+  </div>
+
+  <div class="lg:px-0 pb-5 lg:pb-0">
+    {% if section.settings.image %}
+      <div class="relative w-full h-full overflow-hidden rounded-3xl px-10 lg:px-0">
+        <img
+          src="{{ section.settings.image | image_url }}"
+          alt="{{ section.settings.title | escape }}"
+          title="{{ section.settings.title }}. {{ section.settings.description }}"
+          width="100%"
+          height="100%"
+          class="w-full h-full object-cover rounded-3xl aspect-square"
+        >
+      </div>
+    {% endif %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Features Section",
+  "tag": "section",
+  "class": "features-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "header",
+      "label": "Header",
+      "default": "Why Choose Us"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Our Features"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Discover the benefits of working with our team..."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Learn More"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Features Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

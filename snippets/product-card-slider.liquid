@@ -1,0 +1,30 @@
+<div class="swiper-slide p-4 {{ card.shopify_attributes }}">
+  <div class="flex flex-col items-center w-full h-full bg-white text-gray-900 px-4 py-4 rounded-xl">
+    <div class="relative w-14 aspect-square overflow-hidden rounded-full shrink-0">
+      {% if card.settings.product.image != blank %}
+        <img
+          src="{{ card.settings.product.image | image_url }}"
+          alt="{{ card.settings.product | escape }}"
+          height="100%"
+          width="100%"
+          class="object-cover w-full h-full rounded-full"
+          loading="lazy"
+        >
+      {% else %}
+        <img
+          src="{{ 'no-avatar.png' | asset_url }}"
+          alt="No avatar"
+          height="100%"
+          width="100%"
+          class="object-cover w-full h-full rounded-full"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+
+    <h2 class="text-violet-400 text-sm my-1">
+      {{ card.settings.product }}
+    </h2>
+    {{ card.type }}
+  </div>
+</div>

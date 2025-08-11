@@ -1,0 +1,17 @@
+<button
+  class="relative h-[50px] aspect-square shrink-0 rounded-full overflow-hidden {{ navigation }} {{ border }}"
+  on:click="/{{ action }}"
+  ref="{{ action }}"
+>
+  <img
+    height="100%"
+    width="100%"
+    class="
+      hover:scale-105 transition-all duration-500
+      {% if direction == 'right' %} rotate-180 {% endif %}
+    "
+    alt=">"
+    src="{{ 'icon-arrow-left.svg' | asset_url }}"
+    aria-label="{% if direction == 'left' %} 'Previous' {% else %} 'Next' {% endif %}"
+  >
+</button>

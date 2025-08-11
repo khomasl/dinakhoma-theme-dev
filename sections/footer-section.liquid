@@ -1,0 +1,104 @@
+<section
+  class="grid grid-col-1 md:grid-cols-3 gap-6 justify-items-center md:justify-items-stretch w-full bg-violet-400 main-container text-white"
+>
+  <div>
+    <h2 class="text-2xl font-bold">{{ section.settings.logo_title }}</h2>
+    <p class="mt-2">{{ section.settings.logo_description }}</p>
+  </div>
+
+  {% for block in section.blocks %}
+    {% case block.type %}
+      {% when 'info' %}
+        <div class="text-center md:text-left">
+          {{ block.settings.info }}
+        </div>
+
+      {% when 'contacts' %}
+        <div class="md:justify-self-end text-center md:text-right">
+          {{ block.settings.contacts }}
+        </div>
+
+      {% when 'socials' %}
+        <div class="text-center md:text-left">
+          {{ block.settings.socials }}
+        </div>
+
+      {% when 'promo' %}
+        <div class="md:col-span-2 text-center md:text-left">
+          {{ block.settings.promo }}
+        </div>
+    {% endcase %}
+  {% endfor %}
+</section>
+
+{% schema %}
+{
+  "name": "t:names.footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "logo_title",
+      "label": "Logo Title",
+      "default": "Мій бренд"
+    },
+    {
+      "type": "text",
+      "id": "logo_description",
+      "label": "Logo Description",
+      "default": "Опис компанії"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "info",
+      "name": "Info Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "info",
+          "label": "Info Content"
+        }
+      ]
+    },
+    {
+      "type": "contacts",
+      "name": "Contacts Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "contacts",
+          "label": "Contacts Content"
+        }
+      ]
+    },
+    {
+      "type": "socials",
+      "name": "Social Links",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "socials",
+          "label": "Social Links (HTML allowed)"
+        }
+      ]
+    },
+    {
+      "type": "promo",
+      "name": "Promo Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "promo",
+          "label": "Promo Content"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Footer Section"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,31 @@
+{
+  "name": "dinakhoma-theme-dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "concurrently \"shopify theme dev\" \"npx @tailwindcss/cli -i ./assets/tailwind.input.css -o ./assets/tailwind.output.css --watch\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khomasl/dinakhoma-theme-dev.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/khomasl/dinakhoma-theme-dev/issues"
+  },
+  "homepage": "https://github.com/khomasl/dinakhoma-theme-dev#readme",
+  "devDependencies": {
+    "@shopify/prettier-plugin-liquid": "^1.9.3",
+    "concurrently": "^9.1.2",
+    "prettier": "^3.5.3",
+    "tailwindcss": "^4.1.8"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.8"
+  }
+}
